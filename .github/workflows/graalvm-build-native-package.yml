@@ -1,5 +1,5 @@
 ---
-name: Build GraalVM native image
+name: Build GraalVM native package
 
 on:
   push:
@@ -20,5 +20,5 @@ jobs:
           components: 'native-image'
           github-token: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Build native image
-        run: ./mvnw spring-boot:build-image
+      - name: Build native package
+        run: ./mvnw -Pnative -DskipTests package
